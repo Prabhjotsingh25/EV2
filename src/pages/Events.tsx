@@ -3,8 +3,9 @@ import { EventCard } from "@/components/EventCard";
 import { supabase } from "@/integrations/supabase/client";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { Search } from "lucide-react";
+import { Search, Map as MapIcon } from "lucide-react"; // Import MapIcon
 import { Timeline } from "@/components/Timeline";
+import { EventMap } from "@/components/EventMap"; // Import the new Map Component
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 const Events = () => {
@@ -70,6 +71,7 @@ const Events = () => {
             <TabsList className="mb-6">
               <TabsTrigger value="grid">Grid View</TabsTrigger>
               <TabsTrigger value="timeline">Timeline View</TabsTrigger>
+              <TabsTrigger value="map"><MapIcon className="w-4 h-4 mr-2"/> Map View</TabsTrigger>
             </TabsList>
             
             <TabsContent value="grid">
@@ -97,13 +99,11 @@ const Events = () => {
             </TabsContent>
             
             <TabsContent value="timeline">
-              {filteredEvents.length === 0 ? (
-                <div className="text-center py-12">
-                  <p className="text-muted-foreground">No events found matching your search.</p>
-                </div>
-              ) : (
-                <Timeline events={filteredEvents} />
-              )}
+              <Timeline events={filteredEvents} />
+            </TabsContent>
+
+            <TabsContent value="map">
+               <EventMap events={filteredEvents} />
             </TabsContent>
           </Tabs>
         )}

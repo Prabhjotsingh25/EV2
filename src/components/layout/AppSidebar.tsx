@@ -9,7 +9,7 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
-import { Home, Info, Calendar, Phone, UserPlus, LayoutDashboard } from "lucide-react";
+import { Home, Info, Calendar, Phone, UserPlus, LayoutDashboard, User } from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext";
 
 const menuItems = [
@@ -55,6 +55,12 @@ export function AppSidebar() {
                     <Link to="/admin">
                       <LayoutDashboard className="h-4 w-4" />
                       <span>Dashboard</span>
+                    </Link>
+                  </SidebarMenuButton>
+                  <SidebarMenuButton asChild isActive={isActive("/profile")}>
+                    <Link to="/profile">
+                      <User className="h-4 w-4" />
+                      <span>My Profile</span>
                     </Link>
                   </SidebarMenuButton>
                 </SidebarMenuItem>

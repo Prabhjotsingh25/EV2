@@ -11,6 +11,7 @@ import { Footer } from "@/components/layout/Footer";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Events from "./pages/Events";
+import Profile from "./pages/Profile";
 import Register from "./pages/Register";
 import Contact from "./pages/Contact";
 import Auth from "./pages/Auth";
@@ -41,6 +42,7 @@ const App = () => (
                     <Route path="/auth" element={<Auth />} />
                     <Route path="/admin" element={<AdminDashboard />} />
                     <Route path="*" element={<NotFound />} />
+                    <Route path="/profile" element={<Profile />} />
                   </Routes>
                 </main>
                 <Footer />

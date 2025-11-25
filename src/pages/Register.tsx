@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
 import { Calendar, MapPin, Users, CheckCircle } from "lucide-react";
 import { format } from "date-fns";
+import { EventMap } from "@/components/EventMap"; // Import the map component
 
 const Register = () => {
   const [searchParams] = useSearchParams();
@@ -178,6 +179,14 @@ const Register = () => {
                 </div>
               )}
             </div>
+
+            {/* Map Section Added Here */}
+            {event.latitude && event.longitude && (
+              <div className="space-y-2">
+                <h3 className="font-semibold text-lg">Event Location</h3>
+                <EventMap events={[event]} />
+              </div>
+            )}
 
             {isRegistered ? (
               <div className="flex items-center justify-center gap-2 p-6 bg-primary/10 rounded-lg">
